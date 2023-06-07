@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <div id="container" className="bg-dark-home font-custom p-11 h-full">
+      <div id="container" className="bg-dark-home font-custom p-7 h-full">
         <Search
           location={location}
           setLocation={setLocation}

@@ -23,13 +23,14 @@ function App() {
 
   return (
     <>
-      <div id="container" className="bg-dark-home font-custom p-7 h-full">
-        <Search
+      <div id="container" className="bg-dark-home font-custom h-full">
+        <TopPart
           location={location}
           setLocation={setLocation}
           searchLocation={searchLocation}
+          data={data}
+          city={city}
         />
-        <TopPart data={data} city={city} />
       </div>
     </>
   );

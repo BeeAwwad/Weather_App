@@ -1,8 +1,9 @@
 import React from "react";
 import BottomPart from "./bottompart";
+import Search from "./search";
 
 function TopPart(props) {
-  const { data, city } = props;
+  const { location, setLocation, searchLocation, data, city } = props;
   const date = new Date();
   const day = date.getDate();
   const monthNames = [
@@ -33,34 +34,42 @@ function TopPart(props) {
   ];
 
   return (
-    <div className="text-white flex bg-dark-mode w-full h-full rounded-3xl">
+    <div className="text-white flex bg-dark-mode w-full h-full flex-col">
+      <Search
+        location={location}
+        setLocation={setLocation}
+        searchLocation={searchLocation}
+      />
       <div className="my-auto flex flex-col items-center grow">
-      <div className="mt-10 mb-6 mx-5 p-4 text-3xl font-semibold">
-        <h2>{city}</h2>
-      </div>
-      <div className="m-2 text-lg text-dark-home bg-dark-second py-1 px-4 rounded-full">
-        <p>{currentDate}</p>
-      </div>
-      <div className="m-2 p-3 text-2xl">{data.weather ? <p>{data.weather[0].main}</p> : null}</div>
-      <div className="w-16 hidden md:block">
-        {data.weather && (
-          <img
-            src={
-              imagesDay.find((image) => image.alt === data.weather[0].main)?.src
-            }
-            alt={data.weather[0].main}
-          />
-        )}
-      </div>
-      <div className="relative bottom-3 p-2 h-fit text-9xl font-semi-bold">
-        {data.main ? (
-          <h1>
-            {data.main.temp.toFixed()}
-            {String.fromCharCode(176)}
-          </h1>
-        ) : null}
-      </div>
-      <BottomPart data={data} />
+        <div className="mt-10 mb-6 mx-5 p-4 text-3xl font-semibold">
+          <h2>{city}</h2>
+        </div>
+        <div className="m-2 text-lg text-dark-home bg-dark-second py-1 px-4 rounded-full">
+          <p>{currentDate}</p>
+        </div>
+        <div className="m-2 p-3 text-2xl">
+          {data.weather ? <p>{data.weather[0].main}</p> : null}
+        </div>
+        <div className="w-16 hidden md:block">
+          {data.weather && (
+            <img
+              src={
+                imagesDay.find((image) => image.alt === data.weather[0].main)
+                  ?.src
+              }
+              alt={data.weather[0].main}
+            />
+          )}
+        </div>
+        <div className="relative bottom-3 p-2 h-fit text-9xl font-semi-bold">
+          {data.main ? (
+            <h1>
+              {data.main.temp.toFixed()}
+              {String.fromCharCode(176)}
+            </h1>
+          ) : null}
+        </div>
+        <BottomPart data={data} />
       </div>
     </div>
   );

@@ -33,7 +33,8 @@ function TopPart(props) {
   ];
 
   return (
-    <div className="text-white flex flex-col items-center bg-dark-mode w-full h-full rounded-3xl">
+    <div className="text-white flex bg-dark-mode w-full h-full rounded-3xl">
+      <div className="my-auto flex flex-col items-center grow">
       <div className="mt-10 mb-6 mx-5 p-4 text-3xl font-semibold">
         <h2>{city}</h2>
       </div>
@@ -60,6 +61,7 @@ function TopPart(props) {
         ) : null}
       </div>
       <BottomPart data={data} />
+      </div>
     </div>
   );
 }

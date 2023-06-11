@@ -2,3 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.animate-one {
+    @apply translate-y-full animate-slide-down;
+}
+.animate-two {
+    @apply -translate-x-full animate-slide-left;
+}

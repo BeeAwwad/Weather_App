@@ -46,24 +46,30 @@ function TopPart(props) {
           setLocation={setLocation}
           searchLocation={searchLocation}
         />
-        <div className="mt-10 mb-6 mx-5 p-4 text-3xl font-semibold">
-          <h2>{city}</h2>
-        </div>
-        <div className="m-2 text-lg text-dark-home bg-dark-second py-1 px-4 rounded-full shadow-inner">
-          <p>{currentDate}</p>
-        </div>
-        <div className="m-2 p-3 text-2xl">
-          {data.weather ? <p>{data.weather[0].main}</p> : null}
-        </div>
+        {city ? (<div className="mt-10 mb-6 mx-5 p-4 text-3xl font-semibold overflow-hidden">
+          <h2 className="animate-fade-up">{city}</h2>
+        </div>) : null}
+        {data.main ? (
+          <div className="m-2 text-lg text-dark-home bg-dark-second py-1 px-4 rounded-full shadow-inner animate-fade-up overflow-hidden">
+            <p className="animate-fade-up">{currentDate}</p>
+          </div>
+        ) : null}
+
+        {data.weather ? (
+          <div className="m-2 p-3 text-2xl overflow-hidden">
+            <p className="animate-fade-up delay-300">{data.weather[0].main}</p>
+          </div>
+        ) : null}
+
         <div className="relative bottom-3 p-2 h-fit text-9xl font-semi-bold">
           {data.main ? (
-            <h1>
-              {data.main.temp.toFixed()}
-              {String.fromCharCode(176)}
-            </h1>
+            <div className="animate-fade-up delay-500">
+              <span>{data.main.temp.toFixed()}</span>
+              <span className="">{String.fromCharCode(176)}</span>
+            </div>
           ) : null}
         </div>
-        <div>
+        <div className="overflow-hidden">
           {data.weather &&
           data.weather[0].main &&
           bgColors.find((bg) => bg.name === data.weather[0].main) ? (

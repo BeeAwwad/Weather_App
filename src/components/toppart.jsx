@@ -3,7 +3,7 @@ import BottomPart from "./bottompart";
 import Search from "./search";
 
 function TopPart(props) {
-  const { location, setLocation, searchLocation, data, city } = props;
+  const { sunrise, sunset, location, setLocation, searchLocation, data, city } = props;
 
   const date = new Date();
   const day = date.getDate();
@@ -77,7 +77,7 @@ function TopPart(props) {
               </div>
             ) : null}
           </div>
-          <div className="overflow-hidden md:bg-dark-mode md:h-full">
+          <div className="overflow-hidden md:bg-dark-mode md:h-full md:flex md:flex-col md:justify-between">
             {data.weather &&
             data.weather[0].main &&
             bgColors.find((bg) => bg.name === data.weather[0].main) ? (
@@ -87,7 +87,8 @@ function TopPart(props) {
                     .backgroundColor
                 }`}
               >
-                {/* Your content */}
+                <h2>{sunrise}</h2>
+                <h2>{sunset}</h2>
               </div>
             ) : null}
             <BottomPart data={data} />

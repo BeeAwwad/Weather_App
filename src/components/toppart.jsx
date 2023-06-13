@@ -144,7 +144,7 @@ function TopPart(props) {
                       alt={images[0].name}
                     />
                     <img
-                      className="animate-fade-up delay-700 w2/5"
+                      className="animate-fade-up delay-700 w-2/5"
                       src={images[1].image}
                       alt={images[1].name}
                     />

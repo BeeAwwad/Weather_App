@@ -139,12 +139,12 @@ function TopPart(props) {
                   </div>
                   <div className="flex justify-between mx-4 overflow-hidden">
                     <img
-                      className="animate-fade-up delay-700"
+                      className="animate-fade-up delay-700 w-2/5"
                       src={images[0].image}
                       alt={images[0].name}
                     />
                     <img
-                      className="animate-fade-up delay-700"
+                      className="animate-fade-up delay-700 w2/5"
                       src={images[1].image}
                       alt={images[1].name}
                     />

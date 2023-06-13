@@ -19,7 +19,7 @@ function BottomPart(props) {
   return (
     <>
       {data.main ? (
-        <div className="flex mx-auto justify-between bg-dark-second text-dark-mode p-3 rounded-lg animate-fade-up delay-500 overflow-hidden md:m-5 md:mt-2">
+        <div className="flex mx-auto justify-between bg-dark-second text-dark-mode p-3 rounded-lg animate-fade-up delay-500 overflow-hidden md:m-5 md:mt-5 md:mb-2">
           <div>
             {data.wind ? (
               <div className="flex flex-col mx-3 p-1 items-center overflow-hidden">

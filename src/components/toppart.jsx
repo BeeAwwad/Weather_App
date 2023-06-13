@@ -54,8 +54,8 @@ function TopPart(props) {
   ];
 
   const images = [
-    { name: "sunrise", image: "/img/sunrise.png" },
-    { name: "sunset", image: "/img/sunset.png" },
+    { name: "sunrise", image: "img/sunrise.png" },
+    { name: "sunset", image: "img/sunset.png" },
   ];
 
   return (
@@ -97,7 +97,7 @@ function TopPart(props) {
                   data.weather[0].main &&
                   bgColors.find((bg) => bg.name === data.weather[0].main) ? (
                     <div
-                      className={`rounded-full w-7 h-7 md:bg ${
+                      className={`animate-fade-up delay-300 rounded-full w-7 h-7 md:bg ${
                         bgColors.find((bg) => bg.name === data.weather[0].main)
                           .backgroundColor
                       }`}

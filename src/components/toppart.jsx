@@ -61,7 +61,7 @@ function TopPart(props) {
   return (
     <div className="text-white flex bg-dark-mode md:bg-dark-home w-full h-full flex-col ">
       <div className="my-auto mx-auto">
-        <div className="my-auto flex flex-col items-center md:grid md:grid-rows-4xrow md:grid-cols-2 md:rounded-lg md:overflow-hidden">
+        <div className={`my-auto flex flex-col items-center md:grid md:grid-cols-2 ${data.main ? "md:grid-rows-4xrow" : "md:grid-rows-1row"} md:rounded-lg md:overflow-hidden`}>
           <div
             className={`hidden md:flex text-white bg-dark-second md:h-full md:items-center md:p-4 ${
               Object.keys(data).length === 0 ? "md:rounded-l-lg" : ""

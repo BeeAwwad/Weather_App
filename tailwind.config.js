@@ -5,6 +5,7 @@ export default {
     extend: {
       gridTemplateRows: {
         "4xrow": "1fr 4fr",
+        "1row": "1fr",
         "3xrow": "50px 60px",
       },
       animation: {

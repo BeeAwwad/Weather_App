@@ -119,7 +119,7 @@ function TopPart(props) {
               <BottomPart data={data} />
               {sunrise && sunset ? (
                 <div className="hidden md:grid md:grid-rows-3xrow md:bg-dark-second md:m-5 md:p-3 md:mb-5 md:mt-2 md:rounded-lg text-dark-mode animate-fade-up delay-300">
-                  <div className="flex justify-between mx-4 px-4">
+                  <div className="flex justify-between mx-4 px-6">
                     <div className="overflow-hiddden">
                       <h4 className="font-bold animate-fade-up delay-500">
                         Sunrise

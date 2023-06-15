@@ -6,7 +6,7 @@ export default {
       gridTemplateRows: {
         "4xrow": "1fr 4fr",
         "1row": "1fr",
-        "3xrow": "50px 60px",
+        "3xrow": "60px 50px",
       },
       animation: {
         "slide-left": "slideLeft 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards",

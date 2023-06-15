@@ -61,14 +61,16 @@ function TopPart(props) {
   return (
     <div className="text-white flex bg-dark-mode md:bg-dark-home w-full h-full flex-col ">
       <div className="my-auto mx-auto">
-        <div className={`my-auto flex flex-col items-center md:grid md:grid-cols-2 ${data.main ? "md:grid-rows-4xrow" : "md:grid-rows-1row"} md:rounded-lg md:overflow-hidden`}>
-          <div
-            className={`hidden md:flex text-white bg-dark-second md:h-full md:items-center md:p-4 ${
-              Object.keys(data).length === 0 ? "md:rounded-l-lg" : ""
-            }`}
-          >
-            <h1 className="font-bold text-2xl">weather</h1>
-          </div>
+        <div
+          className={`my-auto flex flex-col items-center md:grid md:grid-cols-2 ${
+            data.main ? "md:grid-rows-4xrow" : "md:grid-rows-1row"
+          } md:rounded-lg md:overflow-hidden`}
+        >
+          {!data.main || window.innerWidth >= 768 ? (
+            <div className="rounded p-2 m-3 text-lg text-dark-second md:flex md:text-white md:bg-dark-second md:h-full md:items-center md:p-4 md:rounded-none md:m-0 md:rounded-l-lg">
+              <h1 className="font-bold text-2xl">weather app</h1>
+            </div>
+          ) : null}
           <Search
             location={location}
             setLocation={setLocation}
@@ -119,35 +121,35 @@ function TopPart(props) {
               <BottomPart data={data} />
               {sunrise && sunset ? (
                 <div className="hidden md:grid md:grid-rows-3xrow md:bg-dark-second md:m-5 md:p-3 md:mb-5 md:mt-2 md:rounded-lg text-dark-mode animate-fade-up delay-300">
-                  <div className="flex justify-between mx-4 px-6">
-                    <div className="overflow-hiddden">
-                      <h4 className="font-bold animate-fade-up delay-500">
-                        Sunrise
-                      </h4>
-                      <p className="text-sm animate-fade-up delay-500">
-                        {newSunrise}am
-                      </p>
-                    </div>
-                    <div className="overflow-hiddden">
-                      <h4 className="font-bold animate-fade-up delay-500">
-                        Sunset
-                      </h4>
-                      <p className="text-sm animate-fade-up delay-500">
-                        {newSunset}pm
-                      </p>
-                    </div>
-                  </div>
                   <div className="flex justify-between mx-4 overflow-hidden">
                     <img
-                      className="animate-fade-up delay-700 w-2/5"
+                      className="animate-fade-up delay-700 w-2/5 object-cover"
                       src={images[0].image}
                       alt={images[0].name}
                     />
                     <img
-                      className="animate-fade-up delay-700 w-2/5"
+                      className="animate-fade-up delay-700 w-2/5 object-cover"
                       src={images[1].image}
                       alt={images[1].name}
                     />
+                  </div>
+                  <div className="flex justify-between mx-5 px-5">
+                    <div className="overflow-hiddden">
+                      <h3 className="font-bold animate-fade-up delay-500">
+                        Sunrise
+                      </h3>
+                      <p className="text-sm animate-fade-up delay-501">
+                        {newSunrise}am
+                      </p>
+                    </div>
+                    <div className="overflow-hiddden">
+                      <h3 className="font-bold animate-fade-up delay-500">
+                        Sunset
+                      </h3>
+                      <p className="text-sm animate-fade-up delay-501">
+                        {newSunset}pm
+                      </p>
+                    </div>
                   </div>
                 </div>
               ) : null}

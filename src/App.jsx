@@ -10,6 +10,7 @@ function App() {
   const [sunrise, setSunrise] = useState("");
   const [sunset, setSunset] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const city = data.name;
 
@@ -20,10 +21,17 @@ function App() {
   const searchLocation = (event) => {
     if (event.key === "Enter") {
       setIsLoading(true);
-      axios.get(url).then((response) => {
-        setData(response.data);
-        setIsLoading(false);
-      });
+      axios
+        .get(url)
+        .then((response) => {
+          setData(response.data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+          setIsLoading(false);
+          setError('Invalid location name.');
+        });
       setLocation("");
     }
   };
@@ -72,6 +80,7 @@ function App() {
           sunrise={sunrise}
           sunset={sunset}
           isLoading={isLoading}
+          error={error}
         />
       </div>
     </>

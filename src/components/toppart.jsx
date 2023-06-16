@@ -3,7 +3,7 @@ import BottomPart from "./bottompart";
 import Search from "./search";
 
 function TopPart(props) {
-  const { isLoading, sunrise, sunset, location, setLocation, searchLocation, data, city } =
+  const { error, isLoading, sunrise, sunset, location, setLocation, searchLocation, data, city } =
     props;
   const [newSunrise, setNewSunrise] = useState("");
   const [newSunset, setNewSunset] = useState("");
@@ -87,6 +87,7 @@ function TopPart(props) {
             searchLocation={searchLocation}
             data={data}
             isLoading={isLoading}
+            error={error}
           />
           {data.main ? (
             <div className="flex flex-col items-center md:bg-dark-mode md:h-full">

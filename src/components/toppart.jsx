@@ -7,6 +7,7 @@ function TopPart(props) {
     props;
   const [newSunrise, setNewSunrise] = useState("");
   const [newSunset, setNewSunset] = useState("");
+  const [isWideScreen, setIsWideScreen] = useState(window.innerWidtj >= 768);
 
   useEffect(() => {
     if (sunrise && sunset) {
@@ -58,6 +59,15 @@ function TopPart(props) {
     { name: "sunset", image: "img/sunset.png" },
   ];
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth >= 768);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div className="text-white flex bg-dark-mode md:bg-dark-home w-full h-full flex-col ">
       <div className="my-auto mx-auto">
@@ -66,7 +76,7 @@ function TopPart(props) {
             data.main ? "md:grid-rows-4xrow" : "md:grid-rows-1row"
           } md:rounded-lg md:overflow-hidden`}
         >
-          {!data.main || window.innerWidth >= 768 ? (
+          {!data.main || isWideScreen ? (
             <div className="rounded p-2 m-3 text-lg text-dark-second md:flex md:text-white md:bg-dark-second md:h-full md:items-center md:p-4 md:rounded-none md:m-0 md:rounded-l-lg">
               <h1 className="font-bold text-2xl">weather app</h1>
             </div>

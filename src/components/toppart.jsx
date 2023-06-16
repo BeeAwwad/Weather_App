@@ -3,11 +3,11 @@ import BottomPart from "./bottompart";
 import Search from "./search";
 
 function TopPart(props) {
-  const { sunrise, sunset, location, setLocation, searchLocation, data, city } =
+  const { isLoading, sunrise, sunset, location, setLocation, searchLocation, data, city } =
     props;
   const [newSunrise, setNewSunrise] = useState("");
   const [newSunset, setNewSunset] = useState("");
-  const [isWideScreen, setIsWideScreen] = useState(window.innerWidtj >= 768);
+  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
     if (sunrise && sunset) {
@@ -77,8 +77,8 @@ function TopPart(props) {
           } md:rounded-lg md:overflow-hidden`}
         >
           {!data.main || isWideScreen ? (
-            <div className="rounded p-2 m-3 text-lg text-dark-second md:flex md:text-white md:bg-dark-second md:h-full md:items-center md:p-4 md:rounded-none md:m-0 md:rounded-l-lg">
-              <h1 className="font-bold text-2xl">weather app</h1>
+            <div className=" md:border rounded p-2 m-3 text-lg text-dark-second md:flex md:text-white md:bg-dark-second md:h-full md:items-center md:p-4 md:rounded-none md:m-0 md:rounded-l-lg">
+              <h1 className="tracking-widest md:tracking-normal font-bold text-3xl md:text-2xl">weather app</h1>
             </div>
           ) : null}
           <Search
@@ -86,6 +86,7 @@ function TopPart(props) {
             setLocation={setLocation}
             searchLocation={searchLocation}
             data={data}
+            isLoading={isLoading}
           />
           {data.main ? (
             <div className="flex flex-col items-center md:bg-dark-mode md:h-full">

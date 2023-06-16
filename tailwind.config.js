@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+ 
   theme: {
     extend: {
       gridTemplateRows: {
@@ -9,10 +10,12 @@ export default {
         "3xrow": "60px 50px",
       },
       animation: {
-        "slide-left": "slideLeft 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards",
-        "slide-down": "slideDown 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards",
+        "slide-left":
+          "slideLeft 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards",
+        "slide-down":
+          "slideDown 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards",
         "fade-up": "fadeUp 1.7s",
-        "slide": "slideToRight 1s forwards",
+        slide: "slideToRight 1s forwards",
       },
       keyframes: {
         slideToRight: {
@@ -21,7 +24,7 @@ export default {
           },
           "100%": {
             transform: "translateX(100%)",
-          }
+          },
         },
         fadeUp: {
           "0%": {
@@ -31,12 +34,12 @@ export default {
           "100%": {
             opacity: 1,
             transform: "translateY(0px) scale(1)",
-          }
+          },
         },
         slideLeft: {
           to: {
             transform: "translateX(0)",
-          }
+          },
         },
         slideDown: {
           to: {

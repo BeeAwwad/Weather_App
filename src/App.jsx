@@ -9,6 +9,7 @@ function App() {
   const [latitude, setLatitude] = useState("");
   const [sunrise, setSunrise] = useState("");
   const [sunset, setSunset] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const city = data.name;
 
@@ -18,8 +19,10 @@ function App() {
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
+      setIsLoading(true);
       axios.get(url).then((response) => {
         setData(response.data);
+        setIsLoading(false);
       });
       setLocation("");
     }
@@ -68,6 +71,7 @@ function App() {
           city={city}
           sunrise={sunrise}
           sunset={sunset}
+          isLoading={isLoading}
         />
       </div>
     </>

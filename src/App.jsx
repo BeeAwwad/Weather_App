@@ -21,6 +21,7 @@ function App() {
   const searchLocation = (event) => {
     if (event.key === "Enter") {
       setIsLoading(true);
+      setError("");
       axios
         .get(url)
         .then((response) => {

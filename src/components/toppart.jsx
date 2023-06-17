@@ -92,7 +92,7 @@ function TopPart(props) {
           {data.main ? (
             <div className="flex flex-col items-center md:bg-dark-mode md:h-full">
               {city ? (
-                <div className="mt-8 md:mt-2 mb-6 md:mb-2 mx-5 p-4 text-3xl md:text-xl font-semibold overflow-hidden">
+                <div className="mt-5 md:mt-2 mb-6 md:mb-2 mx-5 p-4 text-3xl md:text-xl font-semibold overflow-hidden">
                   <h2 className="animate-fade-up">{city}</h2>
                 </div>
               ) : null}

@@ -7,7 +7,7 @@ function Search(props) {
 
   return (
     <div
-      className={`${data.main ? "w-1/2" : "w-full"} text-dark-mode flex flex-col items-center md:justify-end md:items-center md:ml-auto mx-auto md:mx-0 mt-6 md:mt-0 custom-after after md:bg-dark-second md:h-full md:w-full md:p-4 ${
+      className={`${data.main ? "w-1/2" : "w-full"} md:w-full text-dark-mode flex flex-col items-center md:justify-end md:items-center md:ml-auto mx-auto md:mx-0 mt-6 md:mt-0 custom-after after md:bg-dark-second md:h-full md:p-4 ${
         Object.keys(data).length === 0 ? "md:rounded-r-lg" : ""
       }`}
     >
@@ -30,7 +30,7 @@ function Search(props) {
           barColor="#01C38D"
         />
       )}
-      {error && <p className="text-white p-2 bg-red-700 rounded-lg">{error}</p>}
+      {error && <p className="text-white text-xs p-2 bg-red-700 rounded-lg">{error}</p>}
     </div>
   );
 }

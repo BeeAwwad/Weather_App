@@ -3,8 +3,17 @@ import BottomPart from "./bottompart";
 import Search from "./search";
 
 function TopPart(props) {
-  const { error, isLoading, sunrise, sunset, location, setLocation, searchLocation, data, city } =
-    props;
+  const {
+    error,
+    isLoading,
+    sunrise,
+    sunset,
+    location,
+    setLocation,
+    searchLocation,
+    data,
+    city,
+  } = props;
   const [newSunrise, setNewSunrise] = useState("");
   const [newSunset, setNewSunset] = useState("");
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 768);
@@ -62,7 +71,7 @@ function TopPart(props) {
   useEffect(() => {
     const handleResize = () => {
       setIsWideScreen(window.innerWidth >= 768);
-    }
+    };
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -77,8 +86,14 @@ function TopPart(props) {
           } md:rounded-lg md:overflow-hidden`}
         >
           {!data.main || isWideScreen ? (
-            <div className=" md:border rounded p-2 m-3 text-lg text-dark-second md:flex md:text-white md:bg-dark-second md:h-full md:items-center md:p-4 md:rounded-none md:m-0 md:rounded-l-lg">
-              <h1 className="tracking-widest md:tracking-normal font-bold text-3xl md:text-2xl">weather app</h1>
+            <div
+              className={`rounded p-2 m-3 text-lg text-dark-second md:flex md:text-white md:bg-dark-second md:h-full md:items-center md:p-4 md:rounded-none md:m-0 ${
+                Object.keys(data).length === 0 ? "md:rounded-l-lg" : ""
+              }`}
+            >
+              <h1 className="tracking-widest md:tracking-normal font-bold text-3xl md:text-2xl">
+                weather app
+              </h1>
             </div>
           ) : null}
           <Search

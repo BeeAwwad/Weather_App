@@ -10,7 +10,7 @@ function App() {
   const [sunrise, setSunrise] = useState("");
   const [sunset, setSunset] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const city = data.name;
 
@@ -31,9 +31,12 @@ function App() {
         .catch((error) => {
           console.log("Error:", error);
           setIsLoading(false);
-          setError('Invalid location name.');
+          setError("Invalid location name.");
+        })
+        .finally(() => {
+          setLocation("");
+          document.activeElement.blur(); // Close the keyboard
         });
-      setLocation("");
     }
   };
 

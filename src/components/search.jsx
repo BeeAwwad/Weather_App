@@ -37,21 +37,21 @@ function Search(props) {
         placeholder="City..."
       />
       {isLoading && (
-            <ProgressBar
-              height={isMobile ? "60" : "40"}
-              width="80"
-              ariaLabel="progress-bar-loading"
-              wrapperStyle={{}}
-              wrapperClass="progress-bar-wrapper"
-              borderColor={isMobile ? "#01C38D" : "#132D46"}
-              barColor={isMobile ? "#01C38D" : "#132D46"}
-            />
-          )}
-          
+        <ProgressBar
+          height={isMobile ? "60" : "40"}
+          width="80"
+          ariaLabel="progress-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass="progress-bar-wrapper"
+          borderColor={isMobile ? "#01C38D" : "#132D46"}
+          barColor={isMobile ? "#01C38D" : "#132D46"}
+        />
+      )}
+
       {error && (
-        <p className="text-white text-xs p-2 bg-red-700 rounded-lg md:ml-auto">
-          {error}
-        </p>
+        <div className="bg-red-700 md:hidden rounded-lg p-2 md:ml-auto">
+          <p className="text-white text-xs md:hidden">{error}</p>
+        </div>
       )}
     </div>
   );

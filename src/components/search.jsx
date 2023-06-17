@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ProgressBar } from "react-loader-spinner";
+import { MdPriorityHigh } from "react-icons/md";
 
 function Search(props) {
   const { error, isLoading, data, location, setLocation, searchLocation } =
@@ -36,6 +37,7 @@ function Search(props) {
         type="text"
         placeholder="City..."
       />
+
       {isLoading && (
         <ProgressBar
           height={isMobile ? "60" : "40"}
@@ -51,6 +53,11 @@ function Search(props) {
       {error && (
         <div className="bg-red-700 md:hidden rounded-lg p-2 md:ml-auto">
           <p className="text-white text-xs md:hidden">{error}</p>
+        </div>
+      )}
+      {error && (
+        <div className="bg-red-700 rounded-full hidden md:block p-1">
+          <MdPriorityHigh size="1.4rem" color="white" />
         </div>
       )}
     </div>
